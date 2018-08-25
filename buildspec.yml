@@ -5,7 +5,10 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Compiling the Python code...
-      - upload_file.py
+
+  artifacts:
+  files:
+    - upload_file.py
   
 post_build:
     commands:
