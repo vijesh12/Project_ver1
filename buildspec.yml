@@ -1,0 +1,13 @@
+version: 0.1
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the Python code...
+      - upload_file.py
+  
+post_build:
+    commands:
+      - echo Build completed on `date`
+      - aws --region us-west-2 s3 sync ./dist/ s3://vijeshec2cfn/ --acl=public-read --delete
