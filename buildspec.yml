@@ -1,6 +1,10 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+      - pip install --upgrade pip
+      - pip install boto3 --upgrade
   build:
     commands:
       - echo Build started on `date`
@@ -8,5 +12,5 @@ phases:
       - upload_file.py
   post_build:
     commands:
+      - aws --region us-west-2 s3 sync s3://vijeshec2cfn/ --acl=public-read --delete
       - echo Build completed on `date`
-      - aws --region us-west-2 s3 sync ./dist/ s3://vijeshec2cfn/ --acl=public-read --delete
