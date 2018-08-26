@@ -2,4 +2,4 @@
 import os.path
 import boto3
 s3 = boto3.resource('s3')
-s3.meta.client.upload_file('./cfnlambda', 'vijeshec2cfn', 'cfnlambda')
+s3.meta.client.upload_file('./cfnlambda2', 'vijeshec2cfn', 'cfnlambda2')

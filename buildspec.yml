@@ -9,7 +9,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Compiling the Python code...
-      - upload_file.py
+      #- upload_file.py
   post_build:
     commands:
       - aws --region us-west-2 s3 sync . s3://vijeshec2cfn --exclude '*.yml' --exclude '*.py' --exclude '*.md'
